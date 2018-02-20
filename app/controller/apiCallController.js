@@ -1,6 +1,6 @@
 var fetch = require('node-fetch');
 const bodyParser = require('body-parser');
-
+var ObjectID = require("mongodb").ObjectID;
 var db = require('../db')
 
 const url = 'http://loremricksum.com/api/?paragraphs=5&quotes=3'
@@ -40,4 +40,18 @@ exports.getAllFavouriteQuotes  = (req, res, next) => {
    collection.find().toArray(function(err, docs) {
     res.send({quotes: docs})
   })
+}
+
+exports.deleteFavouriteQuote = ( req, res , next) => {
+  const successStatus = 200;
+  let collection = db.get().collection('quotes')
+  console.log(req.params)
+  if (req.params.id) {
+    collection.findOneAndDelete({_id: ObjectID(req.params.id)})
+    const response = {
+      message: " successfully deleted",
+      id: req.params.id
+    }
+    res.send(response)
+  }
 }
