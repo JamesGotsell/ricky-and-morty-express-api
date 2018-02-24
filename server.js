@@ -16,15 +16,21 @@ const routes = require('./app/routes/index');
 const port = 8000;
 
 mongoose.connect(config.database); // connect to database
-
+var db = mongoose.connection;
 app.listen(port, () => {
        console.log('We are live on ' + port);
+      db.on("error", console.error.bind(console, "connection error"));
+      db.once("open", function(callback) {
+      console.log("Connection succeeded.");
+      })
  });
+
+ 
 
 app.use( bodyParser.json() ); 
 app.use(express.urlencoded());
 
-app.use('/', routes);
+app.use('/app', routes);
 
 
 
