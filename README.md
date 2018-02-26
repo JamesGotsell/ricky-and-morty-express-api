@@ -15,7 +15,16 @@ i pass each function into the relative route
 * next function get data from  from mongoDB dataBase; - done
 * next function to delete specific quote from mongoDB
 
+https://github.com/Automattic/mongoose - refence mongoose  
 
+https://www.codementor.io/olatundegaruba/5-steps-to-authenticating-node-js-with-jwt-7ahb5dmyr 
+
+- follow the above 
+
+Error: data and salt arguments required - error i;m getting - 
+
+
+to do need to protect routes thorugh auth 
 https://scotch.io/tutorials/authenticate-a-node-js-api-with-json-web-tokens#what-well-be-building
 
 https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications
